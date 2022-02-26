@@ -9,7 +9,7 @@ export class ValueIconComponent implements OnInit {
 
   @Input() matIcon!: string;
   @Input() iconColor?: string;
-  @Input() value!: string;
+  @Input() value!: any;
   @Input() valueColor?: string;
   constructor() { }
 

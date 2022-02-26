@@ -2,41 +2,107 @@
     <mat-card-title>{{definition.name}}</mat-card-title>
     <mat-card-subtitle>{{definition.type}} {{definition.subtype}}</mat-card-subtitle>
     <mat-card-content>
-      <div class="monster-content">
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Info">
+          <div class="monster-content-column">
+            <p><b>Alignment:</b> {{definition.alignment}}</p>
+            <p><b>Hit Points:</b> {{definition.hit_points}} ({{definition.hit_dice}})</p>
+            <p><b>Size:</b> {{definition.size}}</p>
+            <p><b>Languages: </b> {{definition.languages}}</p>
+            <div *ngIf="definition.forms && definition.forms.length > 0" class="data-row">
+              <div><b>Forms: </b></div> 
+              <div *ngFor="let form of definition.forms">
+                {{form.name}},
+              </div>
+            </div>
+  
+            <div *ngIf="definition.proficiencies && definition.proficiencies.length > 0"  class="data-row">
+              <div><b>Proficiencies: </b></div> 
+              <div *ngFor="let p of definition.proficiencies">
+                {{p.proficiency.name}} (+{{p.value}}),
+              </div>
+            </div>
+  
+            <div *ngIf="definition.damage_vulnerabilities && definition.damage_vulnerabilities.length > 0"  class="data-row">
+              <div><b>Damage Vulnerabilities: </b></div> 
+              <div *ngFor="let p of definition.damage_vulnerabilities">
+                {{p.name}},
+              </div>
+            </div>
+  
+            <div *ngIf="definition.damage_resistances && definition.damage_resistances.length > 0"  class="data-row">
+              <div><b>Damage Resistances: </b></div> 
+              <div *ngFor="let p of definition.damage_resistances">
+                {{p.name}},
+              </div>
+            </div>
+  
+            <div *ngIf="definition.damage_immunities && definition.damage_immunities.length > 0"  class="data-row">
+              <div><b>Damage Immunities: </b></div> 
+              <div *ngFor="let p of definition.damage_immunities">
+                {{p.name}},
+              </div>
+            </div>
+  
+            <div *ngIf="definition.condition_immunities && definition.condition_immunities.length > 0"  class="data-row">
+              <div><b>Condition Immunities: </b></div> 
+              <div *ngFor="let p of definition.condition_immunities">
+                {{p.name}},
+              </div>
+            </div>
+  
+          </div>
+        </mat-tab>
+        <mat-tab label="Abilities">Content 2</mat-tab>
+      </mat-tab-group>
 
+      <div class="monster-content">
+        
+        <div class="monster-content-column">
+          
+        </div>
       </div>
     </mat-card-content>
     <mat-divider inset></mat-divider>
-    <mat-card-actions>
-    </mat-card-actions>
     <mat-card-footer>
       <div class="monster-stats">
-        <dm-creature-stat [value]="definition.strength" [type]="statTypes.Strength"></dm-creature-stat>
-        <dm-creature-stat [value]="definition.dexterity" [type]="statTypes.Dexterity"></dm-creature-stat>
-        <dm-creature-stat [value]="definition.constitution" [type]="statTypes.Constitution"></dm-creature-stat>
-        <dm-creature-stat [value]="definition.intelligence" [type]="statTypes.Intelligence"></dm-creature-stat>
-        <dm-creature-stat [value]="definition.wisdom" [type]="statTypes.Wisdom"></dm-creature-stat>
-        <dm-creature-stat [value]="definition.charisma" [type]="statTypes.Charisma"></dm-creature-stat>
-        <dm-value-icon [matIcon]="'shield'" [value]="definition.armor_class" [valueColor]="'white'" [iconColor]="'gray'"></dm-value-icon>
-        <dm-value-icon [matIcon]="'favorite'" [value]="definition.hit_points" [valueColor]="'white'" [iconColor]="'darkred'"></dm-value-icon>
-        <dm-value-icon *ngIf="definition.speed.walk" 
-          [matIcon]="'directions_walk'" 
-          [value]="definition.speed.walk" 
-          [valueColor]="'black'" 
-          [iconColor]="'lightgray'">
-        </dm-value-icon>
-        <dm-value-icon *ngIf="definition.speed.swim" 
-          [matIcon]="'pool'" 
-          [value]="definition.speed.swim" 
-          [valueColor]="'black'" 
-          [iconColor]="'lightgray'">
-        </dm-value-icon>
-        <dm-value-icon  *ngIf="definition.speed.fly" 
-          [matIcon]="'air'" 
-          [value]="definition.speed.fly" 
-          [valueColor]="'black'" 
-          [iconColor]="'lightgray'">
-        </dm-value-icon>
+        <div class="data-row">
+          <dm-creature-stat [value]="definition.strength" [type]="statTypes.Strength"></dm-creature-stat>
+          <dm-creature-stat [value]="definition.dexterity" [type]="statTypes.Dexterity"></dm-creature-stat>
+          <dm-creature-stat [value]="definition.constitution" [type]="statTypes.Constitution"></dm-creature-stat>
+        </div>
+        <div class="data-row"> 
+          <dm-creature-stat [value]="definition.intelligence" [type]="statTypes.Intelligence"></dm-creature-stat>
+          <dm-creature-stat [value]="definition.wisdom" [type]="statTypes.Wisdom"></dm-creature-stat>
+          <dm-creature-stat [value]="definition.charisma" [type]="statTypes.Charisma"></dm-creature-stat>  
+        </div>
+        <div class="data-row">
+          <dm-value-icon [matIcon]="'shield'" [value]="definition.armor_class" [valueColor]="'white'" [iconColor]="'gray'"></dm-value-icon>
+          <dm-value-icon [matIcon]="'favorite'" [value]="definition.hit_points" [valueColor]="'white'" [iconColor]="'darkred'"></dm-value-icon>  
+        </div>
+        <div class="data-row">
+          <dm-value-icon *ngIf="definition.speed.walk" 
+            [matIcon]="'directions_walk'" 
+            [value]="definition.speed.walk" 
+            [valueColor]="'black'" 
+            [iconColor]="'lightgray'">
+          </dm-value-icon>
+          <dm-value-icon *ngIf="definition.speed.swim" 
+            [matIcon]="'pool'" 
+            [value]="definition.speed.swim" 
+            [valueColor]="'black'" 
+            [iconColor]="'lightgray'">
+          </dm-value-icon>
+          <dm-value-icon  *ngIf="definition.speed.fly" 
+            [matIcon]="'air'" 
+            [value]="definition.speed.fly" 
+            [valueColor]="'black'" 
+            [iconColor]="'lightgray'">
+          </dm-value-icon>
+        </div>
+        
+        <dm-value-icon [matIcon]="'star'" [value]="definition.challenge_rating" [valueColor]="'black'" [iconColor]="'lightgoldenrodyellow'"></dm-value-icon>
+        
         
       </div>
     </mat-card-footer>
