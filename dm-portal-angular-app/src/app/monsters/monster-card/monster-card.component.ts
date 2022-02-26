@@ -12,6 +12,7 @@ export class MonsterCardComponent implements OnInit {
   @Input() definition!: MonsterDefinition;
 
   statTypes = StatType;
+  displayedColumns: string[] = ['name', 'description', 'attack', 'dc', 'usage'];
   
   constructor() { }
 

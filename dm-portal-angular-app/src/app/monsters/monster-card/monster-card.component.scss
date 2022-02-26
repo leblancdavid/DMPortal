@@ -12,6 +12,12 @@
     }
 }
 
+.tab-content {
+    height: 428px;
+    padding: 8px;
+    overflow-y: auto;
+}
+
 .data-row {
     display: flex;
     flex-direction: row;
@@ -19,6 +25,11 @@
     *  {
         margin-right: 8px; 
     }
+}
+
+.ability-cell {
+    min-width: 64px;
+    padding: 8px;
 }
 
 .monster-stats {

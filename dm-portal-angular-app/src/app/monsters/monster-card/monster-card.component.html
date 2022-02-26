@@ -1,70 +1,8 @@
 <mat-card class="example-card">
-    <mat-card-title>{{definition.name}}</mat-card-title>
-    <mat-card-subtitle>{{definition.type}} {{definition.subtype}}</mat-card-subtitle>
-    <mat-card-content>
-      <mat-tab-group mat-align-tabs="start">
-        <mat-tab label="Info">
-          <div class="monster-content-column">
-            <p><b>Alignment:</b> {{definition.alignment}}</p>
-            <p><b>Hit Points:</b> {{definition.hit_points}} ({{definition.hit_dice}})</p>
-            <p><b>Size:</b> {{definition.size}}</p>
-            <p><b>Languages: </b> {{definition.languages}}</p>
-            <div *ngIf="definition.forms && definition.forms.length > 0" class="data-row">
-              <div><b>Forms: </b></div> 
-              <div *ngFor="let form of definition.forms">
-                {{form.name}},
-              </div>
-            </div>
-  
-            <div *ngIf="definition.proficiencies && definition.proficiencies.length > 0"  class="data-row">
-              <div><b>Proficiencies: </b></div> 
-              <div *ngFor="let p of definition.proficiencies">
-                {{p.proficiency.name}} (+{{p.value}}),
-              </div>
-            </div>
-  
-            <div *ngIf="definition.damage_vulnerabilities && definition.damage_vulnerabilities.length > 0"  class="data-row">
-              <div><b>Damage Vulnerabilities: </b></div> 
-              <div *ngFor="let p of definition.damage_vulnerabilities">
-                {{p.name}},
-              </div>
-            </div>
-  
-            <div *ngIf="definition.damage_resistances && definition.damage_resistances.length > 0"  class="data-row">
-              <div><b>Damage Resistances: </b></div> 
-              <div *ngFor="let p of definition.damage_resistances">
-                {{p.name}},
-              </div>
-            </div>
-  
-            <div *ngIf="definition.damage_immunities && definition.damage_immunities.length > 0"  class="data-row">
-              <div><b>Damage Immunities: </b></div> 
-              <div *ngFor="let p of definition.damage_immunities">
-                {{p.name}},
-              </div>
-            </div>
-  
-            <div *ngIf="definition.condition_immunities && definition.condition_immunities.length > 0"  class="data-row">
-              <div><b>Condition Immunities: </b></div> 
-              <div *ngFor="let p of definition.condition_immunities">
-                {{p.name}},
-              </div>
-            </div>
-  
-          </div>
-        </mat-tab>
-        <mat-tab label="Abilities">Content 2</mat-tab>
-      </mat-tab-group>
-
-      <div class="monster-content">
-        
-        <div class="monster-content-column">
-          
-        </div>
-      </div>
-    </mat-card-content>
-    <mat-divider inset></mat-divider>
-    <mat-card-footer>
+  <mat-card-subtitle>
+    {{definition.name}} ({{definition.type}})
+  </mat-card-subtitle>
+    <mat-card-title>
       <div class="monster-stats">
         <div class="data-row">
           <dm-creature-stat [value]="definition.strength" [type]="statTypes.Strength"></dm-creature-stat>
@@ -79,8 +17,6 @@
         <div class="data-row">
           <dm-value-icon [matIcon]="'shield'" [value]="definition.armor_class" [valueColor]="'white'" [iconColor]="'gray'"></dm-value-icon>
           <dm-value-icon [matIcon]="'favorite'" [value]="definition.hit_points" [valueColor]="'white'" [iconColor]="'darkred'"></dm-value-icon>  
-        </div>
-        <div class="data-row">
           <dm-value-icon *ngIf="definition.speed.walk" 
             [matIcon]="'directions_walk'" 
             [value]="definition.speed.walk" 
@@ -99,11 +35,234 @@
             [valueColor]="'black'" 
             [iconColor]="'lightgray'">
           </dm-value-icon>
+          <dm-value-icon [matIcon]="'star'" [value]="definition.challenge_rating" [valueColor]="'black'" [iconColor]="'lightgoldenrodyellow'"></dm-value-icon>
         </div>
-        
-        <dm-value-icon [matIcon]="'star'" [value]="definition.challenge_rating" [valueColor]="'black'" [iconColor]="'lightgoldenrodyellow'"></dm-value-icon>
-        
-        
       </div>
-    </mat-card-footer>
+    </mat-card-title>
+    
+    
+    <mat-card-content>
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Info">
+          <div class="tab-content">
+            <div class="monster-content-column">
+              <p><b>Alignment:</b> {{definition.alignment}}</p>
+              <p><b>Hit Points:</b> {{definition.hit_points}} ({{definition.hit_dice}})</p>
+              <p><b>Size:</b> {{definition.size}}</p>
+              <p><b>Languages: </b> {{definition.languages}}</p>
+              <div *ngIf="definition.forms && definition.forms.length > 0" class="data-row">
+                <div><b>Forms: </b></div> 
+                <div *ngFor="let form of definition.forms">
+                  {{form.name}},
+                </div>
+              </div>
+    
+              <div *ngIf="definition.proficiencies && definition.proficiencies.length > 0"  class="data-row">
+                <div><b>Proficiencies: </b></div> 
+                <div *ngFor="let p of definition.proficiencies">
+                  {{p.proficiency.name}} (+{{p.value}}),
+                </div>
+              </div>
+    
+              <div *ngIf="definition.damage_vulnerabilities && definition.damage_vulnerabilities.length > 0"  class="data-row">
+                <div><b>Damage Vulnerabilities: </b></div> 
+                <div *ngFor="let p of definition.damage_vulnerabilities">
+                  {{p.name}},
+                </div>
+              </div>
+    
+              <div *ngIf="definition.damage_resistances && definition.damage_resistances.length > 0"  class="data-row">
+                <div><b>Damage Resistances: </b></div> 
+                <div *ngFor="let p of definition.damage_resistances">
+                  {{p.name}},
+                </div>
+              </div>
+    
+              <div *ngIf="definition.damage_immunities && definition.damage_immunities.length > 0"  class="data-row">
+                <div><b>Damage Immunities: </b></div> 
+                <div *ngFor="let p of definition.damage_immunities">
+                  {{p.name}},
+                </div>
+              </div>
+    
+              <div *ngIf="definition.condition_immunities && definition.condition_immunities.length > 0"  class="data-row">
+                <div><b>Condition Immunities: </b></div> 
+                <div *ngFor="let p of definition.condition_immunities">
+                  {{p.name}},
+                </div>
+              </div>
+    
+            </div>
+          </div>
+          
+        </mat-tab>
+
+        <mat-tab *ngIf="definition.actions && definition.actions.length > 0" label="Actions">
+          <div class="tab-content">
+            <table mat-table [dataSource]="definition.actions" class="mat-elevation-z8">
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell"> {{element.name}} </td>
+              </ng-container>
+            
+              <!-- Description Column -->
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell"> {{element.desc}} </td>
+              </ng-container>
+            
+              <!-- Attack Column -->
+              <ng-container matColumnDef="attack">
+                <th mat-header-cell *matHeaderCellDef> Attack </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell">
+                  <div *ngIf="element.attack_bonus && element.damage">
+                    Atk: +{{element.attack_bonus}}/
+                    <div *ngFor="let damage of element.damage">
+                      {{damage.damage_dice}} ({{damage.damage_type.name}})
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+  
+              <!-- DC Column -->
+              <ng-container matColumnDef="dc">
+                <th mat-header-cell *matHeaderCellDef> DC </th>
+                <td mat-cell *matCellDef="let element"  class="ability-cell"> 
+                  <div *ngIf="element.dc">
+                    {{element.dc.dc_type.name}}: {{element.dc.dc_value}}
+                  </div>
+                </td>
+              </ng-container>
+  
+              <!-- Usage Column -->
+              <ng-container matColumnDef="usage">
+                <th mat-header-cell *matHeaderCellDef> Usage </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell">
+                  <div *ngIf="element.usage">
+                    {{element.usage.times}} {{element.usage.type}}
+                  </div>
+                </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+        </mat-tab>
+
+        <mat-tab *ngIf="definition.special_abilities && definition.special_abilities.length > 0" 
+          label="Abilities">
+          <div class="tab-content">
+            <table mat-table [dataSource]="definition.special_abilities" class="mat-elevation-z8">
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell"> {{element.name}} </td>
+              </ng-container>
+            
+              <!-- Description Column -->
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell"> {{element.desc}} </td>
+              </ng-container>
+            
+              <!-- Attack Column -->
+              <ng-container matColumnDef="attack">
+                <th mat-header-cell *matHeaderCellDef> Attack </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell">
+                  <div *ngIf="element.attack_bonus && element.damage">
+                    Atk: +{{element.attack_bonus}}/
+                    <div *ngFor="let damage of element.damage">
+                      {{damage.damage_dice}} ({{damage.damage_type.name}})
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+  
+              <!-- DC Column -->
+              <ng-container matColumnDef="dc">
+                <th mat-header-cell *matHeaderCellDef> DC </th>
+                <td mat-cell *matCellDef="let element"  class="ability-cell"> 
+                  <div *ngIf="element.dc">
+                    {{element.dc.dc_type.name}}: {{element.dc.dc_value}}
+                  </div>
+                </td>
+              </ng-container>
+  
+              <!-- Usage Column -->
+              <ng-container matColumnDef="usage">
+                <th mat-header-cell *matHeaderCellDef> Usage </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell">
+                  <div *ngIf="element.usage">
+                    {{element.usage.times}} {{element.usage.type}}
+                  </div>
+                </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+        </mat-tab>
+
+        <mat-tab *ngIf="definition.legendary_actions && definition.legendary_actions.length > 0" 
+          label="Legendary">
+          <div class="tab-content">
+            <table mat-table [dataSource]="definition.legendary_actions" class="mat-elevation-z8">
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell"> {{element.name}} </td>
+              </ng-container>
+            
+              <!-- Description Column -->
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell"> {{element.desc}} </td>
+              </ng-container>
+            
+              <!-- Attack Column -->
+              <ng-container matColumnDef="attack">
+                <th mat-header-cell *matHeaderCellDef> Attack </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell">
+                  <div *ngIf="element.attack_bonus && element.damage">
+                    Atk: +{{element.attack_bonus}}/
+                    <div *ngFor="let damage of element.damage">
+                      {{damage.damage_dice}} ({{damage.damage_type.name}})
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+  
+              <!-- DC Column -->
+              <ng-container matColumnDef="dc">
+                <th mat-header-cell *matHeaderCellDef> DC </th>
+                <td mat-cell *matCellDef="let element"  class="ability-cell"> 
+                  <div *ngIf="element.dc">
+                    {{element.dc.dc_type.name}}: {{element.dc.dc_value}}
+                  </div>
+                </td>
+              </ng-container>
+  
+              <!-- Usage Column -->
+              <ng-container matColumnDef="usage">
+                <th mat-header-cell *matHeaderCellDef> Usage </th>
+                <td mat-cell *matCellDef="let element" class="ability-cell">
+                  <div *ngIf="element.usage">
+                    {{element.usage.times}} {{element.usage.type}}
+                  </div>
+                </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
   </mat-card>

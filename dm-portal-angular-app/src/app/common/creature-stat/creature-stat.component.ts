@@ -18,7 +18,7 @@ export class CreatureStatComponent implements OnInit {
     if(this.value >= 12) {
       this.modifier = '+' + Math.floor((this.value - 10) / 2); 
     } else if(this.value < 10) {
-      this.modifier = '-' + Math.floor((this.value - 10) / 2); 
+      this.modifier = Math.floor((this.value - 10) / 2).toString(); 
     } else {
       this.modifier = '-';
     }
