@@ -2,16 +2,23 @@
     <mat-card-title>{{definition.name}}</mat-card-title>
     <mat-card-subtitle>{{definition.type}} {{definition.subtype}}</mat-card-subtitle>
     <mat-card-content>
-        <dm-creature-stat [value]="18" [type]="statTypes.Strength"></dm-creature-stat>
-        <dm-creature-stat [value]="8" [type]="statTypes.Dexterity"></dm-creature-stat>
-        <p>This card has divider and indeterminate progress as footer</p>
+      <div class="monster-content">
+
+      </div>
     </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
     </mat-card-actions>
     <mat-card-footer>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      <div class="monster-stats">
+        <dm-creature-stat [value]="definition.strength" [type]="statTypes.Strength"></dm-creature-stat>
+        <dm-creature-stat [value]="definition.dexterity" [type]="statTypes.Dexterity"></dm-creature-stat>
+        <dm-creature-stat [value]="definition.constitution" [type]="statTypes.Constitution"></dm-creature-stat>
+        <dm-creature-stat [value]="definition.intelligence" [type]="statTypes.Intelligence"></dm-creature-stat>
+        <dm-creature-stat [value]="definition.wisdom" [type]="statTypes.Wisdom"></dm-creature-stat>
+        <dm-creature-stat [value]="definition.charisma" [type]="statTypes.Charisma"></dm-creature-stat>
+        <dm-value-icon [matIcon]="'shield'" [value]="definition.armor_class" [valueColor]="'white'" [iconColor]="'gray'"></dm-value-icon>
+        <dm-value-icon [matIcon]="'favorite'" [value]="definition.hit_points" [valueColor]="'white'" [iconColor]="'darkred'"></dm-value-icon>
+      </div>
     </mat-card-footer>
   </mat-card>
