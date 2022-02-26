@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MonstersModule } from './monsters/monsters.module';
+import { MaterialModule } from './material/material.module';
+import { CommonLogicModule } from './common/common-logic.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { MonstersModule } from './monsters/monsters.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MonstersModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule,
+    CommonLogicModule
   ],
   providers: [],
   bootstrap: [AppComponent]
