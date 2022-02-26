@@ -19,6 +19,25 @@
         <dm-creature-stat [value]="definition.charisma" [type]="statTypes.Charisma"></dm-creature-stat>
         <dm-value-icon [matIcon]="'shield'" [value]="definition.armor_class" [valueColor]="'white'" [iconColor]="'gray'"></dm-value-icon>
         <dm-value-icon [matIcon]="'favorite'" [value]="definition.hit_points" [valueColor]="'white'" [iconColor]="'darkred'"></dm-value-icon>
+        <dm-value-icon *ngIf="definition.speed.walk" 
+          [matIcon]="'directions_walk'" 
+          [value]="definition.speed.walk" 
+          [valueColor]="'black'" 
+          [iconColor]="'lightgray'">
+        </dm-value-icon>
+        <dm-value-icon *ngIf="definition.speed.swim" 
+          [matIcon]="'pool'" 
+          [value]="definition.speed.swim" 
+          [valueColor]="'black'" 
+          [iconColor]="'lightgray'">
+        </dm-value-icon>
+        <dm-value-icon  *ngIf="definition.speed.fly" 
+          [matIcon]="'air'" 
+          [value]="definition.speed.fly" 
+          [valueColor]="'black'" 
+          [iconColor]="'lightgray'">
+        </dm-value-icon>
+        
       </div>
     </mat-card-footer>
   </mat-card>
