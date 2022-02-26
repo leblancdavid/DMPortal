@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MonsterDefinition } from '../monster';
+import { MonsterService } from '../monster.service';
 
 @Component({
   selector: 'dm-monster-lookup',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonsterLookupComponent implements OnInit {
 
-  constructor() { }
+  currentMonster?: MonsterDefinition;
+  constructor(private monsterService: MonsterService) { }
 
   ngOnInit(): void {
+    this.monsterService.getByIndex('aboleth').subscribe(x => {
+      this.currentMonster = x;
+    }, error => {
+      console.error(error);
+    });
+    
   }
 
 }
