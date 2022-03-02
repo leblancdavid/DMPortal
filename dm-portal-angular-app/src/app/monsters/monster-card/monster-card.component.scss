@@ -1,3 +1,6 @@
+.card {
+    max-width: 100%;
+}
 .monster-content {
     display: flex;
     flex-direction: row;
@@ -6,7 +9,7 @@
 
     .monster-content-column {
         padding: 8px;
-        min-width: 256px;
+        min-width: 192px;
         display: flex;
         flex-direction: column;
     }
@@ -28,7 +31,7 @@
 }
 
 .ability-cell {
-    min-width: 64px;
+    min-width: 48px;
     padding: 8px;
 }
 

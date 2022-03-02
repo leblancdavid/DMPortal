@@ -1,4 +1,11 @@
 
 <div class="monster-lookup">
-    <dm-monster-card *ngIf="currentMonster" [definition]="currentMonster"></dm-monster-card>
+    <div class="monster-list-column">
+        <mat-selection-list *ngIf="monsterList" #monsterRefs [multiple]="false">
+            <mat-list-option *ngFor="let monster of monsterList" [value]="monster.index">
+              {{monster.name}}
+            </mat-list-option>
+          </mat-selection-list>
+    </div>
+    <dm-monster-card *ngIf="currentMonster" [definition]="currentMonster" style="flex: 1"></dm-monster-card>
 </div>

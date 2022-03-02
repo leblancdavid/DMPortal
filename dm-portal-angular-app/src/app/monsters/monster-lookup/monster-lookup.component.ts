@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiReference } from 'src/app/common/common-models';
 import { MonsterDefinition } from '../monster';
 import { MonsterService } from '../monster.service';
 
@@ -10,9 +11,15 @@ import { MonsterService } from '../monster.service';
 export class MonsterLookupComponent implements OnInit {
 
   currentMonster?: MonsterDefinition;
+  monsterList: Array<ApiReference> = [];
   constructor(private monsterService: MonsterService) { }
 
   ngOnInit(): void {
+    this.monsterService.getAll().subscribe(x => {
+      this.monsterList = x.results;
+    }, error => {
+      console.error(error);
+    })
     this.monsterService.getByIndex('aboleth').subscribe(x => {
       this.currentMonster = x;
     }, error => {
