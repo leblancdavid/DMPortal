@@ -26,6 +26,7 @@ export interface MonsterDefinition {
     senses: any;
     languages: string;
     challenge_rating: number;
+    xp: number;
     special_abilities: Array<MonsterAbility>;
     actions: Array<MonsterAbility>;
     legendary_actions: Array<MonsterAbility>;

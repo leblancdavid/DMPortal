@@ -35,7 +35,12 @@
             [valueColor]="'black'" 
             [iconColor]="'lightgray'">
           </dm-value-icon>
-          <dm-value-icon [matIcon]="'star'" [value]="definition.challenge_rating" [valueColor]="'black'" [iconColor]="'lightgoldenrodyellow'"></dm-value-icon>
+          <dm-value-icon [matIcon]="'star'" 
+            [value]="definition.challenge_rating" 
+            [valueColor]="'black'" 
+            [iconColor]="'lightgoldenrodyellow'">
+            XP: {{definition.xp}}
+          </dm-value-icon>
         </div>
       </div>
     </mat-card-title>
