@@ -1,6 +1,13 @@
 .card {
     max-width: 100%;
 }
+
+.monster-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .monster-content {
     display: flex;
     flex-direction: row;
@@ -16,7 +23,7 @@
 }
 
 .tab-content {
-    height: 428px;
+    height: 384px;
     padding: 8px;
     overflow-y: auto;
 }

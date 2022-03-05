@@ -2,10 +2,14 @@
 <div class="monster-lookup">
     <div class="monster-list-column">
         <mat-selection-list *ngIf="monsterList" #monsterRefs [multiple]="false">
-            <mat-list-option *ngFor="let monster of monsterList" [value]="monster.index">
+            <mat-list-option *ngFor="let monster of monsterList" [value]="monster.index"
+              (click)="selectMonster(monster.index)">
               {{monster.name}}
             </mat-list-option>
           </mat-selection-list>
     </div>
-    <dm-monster-card *ngIf="currentMonster" [definition]="currentMonster" style="flex: 1"></dm-monster-card>
+    <dm-monster-card *ngIf="currentMonster" 
+      [definition]="currentMonster" 
+      style="flex: 1; padding: 8px; box-sizing:border-box">
+    </dm-monster-card>
 </div>

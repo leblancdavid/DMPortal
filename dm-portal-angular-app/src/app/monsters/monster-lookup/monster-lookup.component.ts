@@ -20,12 +20,20 @@ export class MonsterLookupComponent implements OnInit {
     }, error => {
       console.error(error);
     })
-    this.monsterService.getByIndex('aboleth').subscribe(x => {
+    
+    
+  }
+
+  selectMonster(selectedMonsterIndex: string) {
+    if(selectedMonsterIndex == null) {
+      return;
+    }
+
+    this.monsterService.getByIndex(selectedMonsterIndex).subscribe(x => {
       this.currentMonster = x;
     }, error => {
       console.error(error);
     });
-    
   }
 
 }

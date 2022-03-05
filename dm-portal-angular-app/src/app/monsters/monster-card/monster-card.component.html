@@ -1,18 +1,8 @@
 <div class="card">
-  <h2>
-    {{definition.name}} ({{definition.type}})
-  </h2>
-  <div class="monster-stats">
-    <div class="data-row">
-      <dm-creature-stat [value]="definition.strength" [type]="statTypes.Strength"></dm-creature-stat>
-      <dm-creature-stat [value]="definition.dexterity" [type]="statTypes.Dexterity"></dm-creature-stat>
-      <dm-creature-stat [value]="definition.constitution" [type]="statTypes.Constitution"></dm-creature-stat>
-    </div>
-    <div class="data-row">
-      <dm-creature-stat [value]="definition.intelligence" [type]="statTypes.Intelligence"></dm-creature-stat>
-      <dm-creature-stat [value]="definition.wisdom" [type]="statTypes.Wisdom"></dm-creature-stat>
-      <dm-creature-stat [value]="definition.charisma" [type]="statTypes.Charisma"></dm-creature-stat>
-    </div>
+  <div class="monster-header data-row">
+    <h2>
+      {{definition.name}} ({{definition.type}})
+    </h2>
     <div class="data-row">
       <dm-value-icon [matIcon]="'shield'" [value]="definition.armor_class" [valueColor]="'white'" [iconColor]="'gray'">
       </dm-value-icon>
@@ -33,7 +23,19 @@
       </dm-value-icon>
     </div>
   </div>
-
+  
+  <div class="monster-stats">
+    <div class="data-row">
+      <dm-creature-stat [value]="definition.strength" [type]="statTypes.Strength"></dm-creature-stat>
+      <dm-creature-stat [value]="definition.dexterity" [type]="statTypes.Dexterity"></dm-creature-stat>
+      <dm-creature-stat [value]="definition.constitution" [type]="statTypes.Constitution"></dm-creature-stat>
+    </div>
+    <div class="data-row">
+      <dm-creature-stat [value]="definition.intelligence" [type]="statTypes.Intelligence"></dm-creature-stat>
+      <dm-creature-stat [value]="definition.wisdom" [type]="statTypes.Wisdom"></dm-creature-stat>
+      <dm-creature-stat [value]="definition.charisma" [type]="statTypes.Charisma"></dm-creature-stat>
+    </div>
+  </div>
 
   <mat-tab-group mat-align-tabs="start">
     <mat-tab label="Info">
