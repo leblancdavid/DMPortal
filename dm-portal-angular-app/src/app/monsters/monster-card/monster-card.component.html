@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="definition">
   <div class="monster-header data-row">
     <h2>
       {{definition.name}} ({{definition.type}})
@@ -23,7 +23,7 @@
       </dm-value-icon>
     </div>
   </div>
-  
+
   <div class="monster-stats">
     <div class="data-row">
       <dm-creature-stat [value]="definition.strength" [type]="statTypes.Strength"></dm-creature-stat>

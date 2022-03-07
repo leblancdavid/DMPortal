@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactory, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ApiReference } from 'src/app/common/common-models';
 import { MonsterDefinition } from '../monster';
+import { MonsterCardComponent } from '../monster-card/monster-card.component';
 import { MonsterService } from '../monster.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { MonsterService } from '../monster.service';
   styleUrls: ['./monster-lookup.component.scss']
 })
 export class MonsterLookupComponent implements OnInit {
-
-  currentMonster?: MonsterDefinition;
   monsterList: Array<ApiReference> = [];
-  constructor(private monsterService: MonsterService) { }
+  monsterDefinition: MonsterDefinition | undefined;
+  selectedMonsterIndex: string | undefined;
+  @ViewChild("monsterDefinitionContainer", { read: ViewContainerRef }) monsterDefinitionContainer: any;
+
+  constructor(private monsterService: MonsterService, private resolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
     this.monsterService.getAll().subscribe(x => {
@@ -20,20 +23,18 @@ export class MonsterLookupComponent implements OnInit {
     }, error => {
       console.error(error);
     })
-    
-    
+
+
   }
 
-  selectMonster(selectedMonsterIndex: string) {
-    if(selectedMonsterIndex == null) {
-      return;
-    }
-
-    this.monsterService.getByIndex(selectedMonsterIndex).subscribe(x => {
-      this.currentMonster = x;
+  expandMonster(monsterIndex: string) {
+    this.selectedMonsterIndex = monsterIndex;
+    this.monsterDefinition = undefined;
+    this.monsterService.getByIndex(monsterIndex).subscribe(x => {
+      this.monsterDefinition = x;
     }, error => {
       console.error(error);
     });
-  }
 
+  }
 }
