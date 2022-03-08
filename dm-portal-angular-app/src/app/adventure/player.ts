@@ -21,8 +21,10 @@ export class Player {
 }
 
 export class Party {
-    constructor(public players: Array<Player>) {
 
+    players: Array<Player>;
+    constructor(public name: string) {
+        this.players = [];
     }
 
     addPlayer(player: Player) {

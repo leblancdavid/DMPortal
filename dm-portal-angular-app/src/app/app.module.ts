@@ -11,6 +11,7 @@ import { CommonLogicModule } from './common/common-logic.module';
 import { HttpCache, HttpCacheService } from './config/interceptors/http-cache.service';
 import { CacheInterceptor } from './config/interceptors/cache.interceptor';
 import { LoggingInterceptor } from './config/interceptors/logging.interceptor';
+import { AdventureModule } from './adventure/adventure.module';
 
 export const httpInterceptorProviders = [
   //{ provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
@@ -26,6 +27,7 @@ export const httpInterceptorProviders = [
     AppRoutingModule,
     BrowserAnimationsModule,
     MonstersModule,
+    AdventureModule,
     HttpClientModule,
     MaterialModule,
     CommonLogicModule
