@@ -41,6 +41,10 @@ export class MonsterLookupComponent implements OnInit {
     this.monsterDefinition = this.filteredList.find(x => x.index == monsterIndex);
   }
 
+  closeMonster() {
+    this.selectedMonsterIndex = undefined;
+  }
+
   applyFilter() {
     this.filteredList = this.filter.apply(this.monsterList);
   }
