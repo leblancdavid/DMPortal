@@ -21,7 +21,6 @@ export class MonsterLookupComponent implements OnInit {
 
   ngOnInit(): void {
     this.monsterService.getAll().subscribe(x => {
-      debugger;
       forkJoin(x.results.map(y => this.monsterService.getByIndex(y.index))).subscribe(m => {
         this.monsterList = m;
         this.filteredList = this.monsterList;
@@ -39,10 +38,10 @@ export class MonsterLookupComponent implements OnInit {
 
   expandMonster(monsterIndex: string) {
     this.selectedMonsterIndex = monsterIndex;
-    this.monsterDefinition = undefined;
+    this.monsterDefinition = this.filteredList.find(x => x.index == monsterIndex);
   }
 
   applyFilter() {
-    this.filter.apply(this.monsterList);
+    this.filteredList = this.filter.apply(this.monsterList);
   }
 }

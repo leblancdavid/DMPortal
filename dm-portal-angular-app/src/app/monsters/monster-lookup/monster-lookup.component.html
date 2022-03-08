@@ -3,7 +3,7 @@
     <dm-monster-lookup-filter [filter]="filter" (change)="applyFilter()">
     </dm-monster-lookup-filter>
     <mat-accordion>
-      <mat-expansion-panel *ngFor="let monster of monsterList" (afterExpand)="expandMonster(monster.index)">
+      <mat-expansion-panel *ngFor="let monster of filteredList" (afterExpand)="expandMonster(monster.index)">
         <mat-expansion-panel-header>
           <mat-panel-title>
             {{monster.name}}
@@ -13,7 +13,7 @@
 
         </mat-expansion-panel-header>
         <div class="monster-definition-content">
-          <div *ngIf="selectedMonsterIndex == monster.index">
+          <div class="monster-definition-content" *ngIf="selectedMonsterIndex == monster.index">
             <mat-spinner *ngIf="!monsterDefinition"></mat-spinner>
             <dm-monster-card *ngIf="monsterDefinition" [definition]="monsterDefinition"
               style="flex: 1; padding: 8px; box-sizing:border-box">

@@ -1,7 +1,7 @@
 <div class="filters">
     <mat-form-field appearance="fill">
         <mat-label>Monster Type</mat-label>
-        <mat-select [(ngModel)]="filter.typeFilter.currentValue">
+        <mat-select [(ngModel)]="filter.typeFilter.currentValue" (selectionChange)="filterUpdated()">
             <mat-option value="">Any</mat-option>
             <mat-option *ngFor="let type of filter.typeFilter.getOptions()" [value]="type">{{type}}</mat-option>
         </mat-select>
@@ -9,7 +9,7 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Monster Size</mat-label>
-        <mat-select [(ngModel)]="filter.sizeFilter.currentValue">
+        <mat-select [(ngModel)]="filter.sizeFilter.currentValue" (selectionChange)="filterUpdated()">
             <mat-option value="">Any</mat-option>
             <mat-option *ngFor="let size of filter.sizeFilter.getOptions()" [value]="size">{{size}}</mat-option>
         </mat-select>

@@ -162,7 +162,7 @@ export class MonsterTypeFilter implements MonsterFilter<string> {
     }
 
     public satisfies(definition: MonsterDefinition): boolean {
-        return this.ignore || definition.size === this._currentValue;
+        return this.ignore || definition.type.toLowerCase() === this._currentValue.toLowerCase();
     }
 }
 
