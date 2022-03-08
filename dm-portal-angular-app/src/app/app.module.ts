@@ -13,7 +13,7 @@ import { CacheInterceptor } from './config/interceptors/cache.interceptor';
 import { LoggingInterceptor } from './config/interceptors/logging.interceptor';
 
 export const httpInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
+  //{ provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }
 ];
 

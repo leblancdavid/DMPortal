@@ -168,13 +168,13 @@ export class MonsterTypeFilter implements MonsterFilter<string> {
 
 export class MonsterLookupFilters implements BaseMonsterFilter {
     public minChallengeRatingFilter = new MinChallengeRatingFilter();
-    public maxhallengeRatingFilter = new MaxChallengeRatingFilter();
+    public maxChallengeRatingFilter = new MaxChallengeRatingFilter();
     public sizeFilter = new SizeFilter();
     public typeFilter = new MonsterTypeFilter();
 
     public satisfies(definition: MonsterDefinition): boolean {
         return this.minChallengeRatingFilter.satisfies(definition) &&
-            this.maxhallengeRatingFilter.satisfies(definition) &&
+            this.maxChallengeRatingFilter.satisfies(definition) &&
             this.sizeFilter.satisfies(definition) &&
             this.typeFilter.satisfies(definition);
     }

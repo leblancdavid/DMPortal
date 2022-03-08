@@ -1,6 +1,7 @@
 <div class="monster-lookup">
   <div class="monster-list-column">
-
+    <dm-monster-lookup-filter [filter]="filter" (change)="applyFilter()">
+    </dm-monster-lookup-filter>
     <mat-accordion>
       <mat-expansion-panel *ngFor="let monster of monsterList" (afterExpand)="expandMonster(monster.index)">
         <mat-expansion-panel-header>

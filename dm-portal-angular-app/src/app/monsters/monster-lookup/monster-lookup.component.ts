@@ -1,7 +1,7 @@
 import { Component, ComponentFactory, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { ApiReference } from 'src/app/common/common-models';
+import { forkJoin } from 'rxjs';
 import { MonsterDefinition } from '../monster';
-import { MonsterCardComponent } from '../monster-card/monster-card.component';
+import { MonsterLookupFilters } from '../monster-filter';
 import { MonsterService } from '../monster.service';
 
 @Component({
@@ -10,16 +10,26 @@ import { MonsterService } from '../monster.service';
   styleUrls: ['./monster-lookup.component.scss']
 })
 export class MonsterLookupComponent implements OnInit {
-  monsterList: Array<ApiReference> = [];
+  monsterList: Array<MonsterDefinition> = [];
+  filteredList: Array<MonsterDefinition> = [];
   monsterDefinition: MonsterDefinition | undefined;
   selectedMonsterIndex: string | undefined;
+  filter: MonsterLookupFilters = new MonsterLookupFilters();
   @ViewChild("monsterDefinitionContainer", { read: ViewContainerRef }) monsterDefinitionContainer: any;
 
   constructor(private monsterService: MonsterService, private resolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
     this.monsterService.getAll().subscribe(x => {
-      this.monsterList = x.results;
+      debugger;
+      forkJoin(x.results.map(y => this.monsterService.getByIndex(y.index))).subscribe(m => {
+        this.monsterList = m;
+        this.filteredList = this.monsterList;
+      }, error => {
+        console.error(error);
+      });
+
+
     }, error => {
       console.error(error);
     })
@@ -30,11 +40,9 @@ export class MonsterLookupComponent implements OnInit {
   expandMonster(monsterIndex: string) {
     this.selectedMonsterIndex = monsterIndex;
     this.monsterDefinition = undefined;
-    this.monsterService.getByIndex(monsterIndex).subscribe(x => {
-      this.monsterDefinition = x;
-    }, error => {
-      console.error(error);
-    });
+  }
 
+  applyFilter() {
+    this.filter.apply(this.monsterList);
   }
 }

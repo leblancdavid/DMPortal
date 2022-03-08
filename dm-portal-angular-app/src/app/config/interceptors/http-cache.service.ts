@@ -13,23 +13,22 @@ export abstract class HttpCache {
 export class HttpCacheService implements HttpCache {
   cacheMap = new Map<string, CacheEntry>();
   get(req: HttpRequest<any>): HttpResponse<any> | null {
-    const entry = this.cacheMap.get(req.urlWithParams);
-    if (!entry) {
+    const entryJson = localStorage.getItem(req.urlWithParams);
+    if (!entryJson) {
       return null;
     }
+
+    const entry = JSON.parse(entryJson);
+
     const isExpired = (Date.now() - entry.entryTime) > MAX_CACHE_AGE;
+    if (isExpired) {
+      localStorage.removeItem(req.urlWithParams);
+    }
     return isExpired ? null : entry.response;
   }
   put(req: HttpRequest<any>, res: HttpResponse<any>): void {
     const entry: CacheEntry = { url: req.urlWithParams, response: res, entryTime: Date.now() };
-    this.cacheMap.set(req.urlWithParams, entry);
-    this.deleteExpiredCache();
+    localStorage.setItem(req.urlWithParams, JSON.stringify(entry));
   }
-  private deleteExpiredCache() {
-    this.cacheMap.forEach(entry => {
-      if ((Date.now() - entry.entryTime) > MAX_CACHE_AGE) {
-        this.cacheMap.delete(entry.url);
-      }
-    })
-  }
+
 }

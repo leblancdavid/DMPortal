@@ -5,16 +5,19 @@ import { MonsterCardComponent, MonsterRefCardComponent } from './monster-card/mo
 import { MaterialModule } from '../material/material.module';
 import { CommonLogicModule } from '../common/common-logic.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MonsterLookupFilterComponent } from './monster-lookup/monster-lookup-filter/monster-lookup-filter.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [MonsterLookupComponent, MonsterCardComponent, MonsterRefCardComponent],
+  declarations: [MonsterLookupComponent, MonsterCardComponent, MonsterRefCardComponent, MonsterLookupFilterComponent],
   imports: [
     CommonModule,
     MaterialModule,
     HttpClientModule,
-    CommonLogicModule
-  ]
+    CommonLogicModule,
+    FormsModule
+  ],
 })
 export class MonstersModule { }

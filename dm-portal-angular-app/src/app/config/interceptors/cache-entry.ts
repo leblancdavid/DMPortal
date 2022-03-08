@@ -8,4 +8,4 @@ export class CacheEntry {
     }
 }
 
-export const MAX_CACHE_AGE = 20000; // in milliseconds 
+export const MAX_CACHE_AGE = 20000000; // in milliseconds 

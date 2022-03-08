@@ -1,0 +1,16 @@
+.filters {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .rating-field {
+        width: 96px;
+    }
+
+    * {
+        margin: 0 8px;
+    }
+}
