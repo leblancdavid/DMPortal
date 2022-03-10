@@ -1,6 +1,5 @@
 export class Player {
 
-    currentHp: number;
     level: number;
     xp: number;
     constructor(public name: string = '',
@@ -14,7 +13,6 @@ export class Player {
         public intelligence: number = 0,
         public wisdom: number = 0,
         public charisma: number = 0) {
-        this.currentHp = maxHp;
         this.level = 1;
         this.xp = 0;
     }

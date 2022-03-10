@@ -8,7 +8,7 @@ export interface MonsterDefinition {
     subtype: string;
     alignment: string;
     armor_class: string;
-    hit_points: string;
+    hit_points: number;
     hit_dice: string;
     forms: Array<ApiReference>; //list?
     speed: MonsterSpeed;
@@ -51,13 +51,4 @@ export interface MonsterAbility {
     dc: DC;
     damage: Array<Damage>;
     usage: Usage;
-}
-
-
-export class Monster {
-    definition: MonsterDefinition;
-
-    constructor(definition: MonsterDefinition) {
-        this.definition = definition;
-    }
 }
