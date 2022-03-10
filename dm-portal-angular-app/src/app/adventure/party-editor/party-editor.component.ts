@@ -16,7 +16,6 @@ export class PartyEditorComponent implements OnInit {
     this.party = new Party('');
   }
 
-  statTypes = StatType;
 
   ngOnInit(): void {
   }
@@ -49,4 +48,11 @@ export class PartyEditorComponent implements OnInit {
     this.party.removePlayer(player.characterName);
   }
 
+  save() {
+    //todo
+  }
+
+  cancel() {
+    //todo
+  }
 }
