@@ -28,6 +28,12 @@ export class Party {
     }
 
     addPlayer(player: Player) {
+        let index = 2;
+        const originalName = player.characterName;
+        while (this.players.some(x => x.characterName == player.characterName)) {
+            player.characterName = originalName + ' ' + index;
+            index++;
+        }
         this.players.push(player);
     }
 

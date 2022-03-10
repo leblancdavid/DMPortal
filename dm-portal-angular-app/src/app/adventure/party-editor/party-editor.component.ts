@@ -43,7 +43,7 @@ export class PartyEditorComponent implements OnInit {
   }
 
   deletePlayer(player: Player) {
-
+    this.party.removePlayer(player.characterName);
   }
 
 }
