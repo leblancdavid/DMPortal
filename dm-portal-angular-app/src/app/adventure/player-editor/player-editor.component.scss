@@ -1,0 +1,20 @@
+.player-editor-title {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    * {
+        padding: 8px;
+        flex: 1;
+    }
+}
+
+.player-editor-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    * {
+        padding: 8px;
+        width: 128px;
+    }
+}
