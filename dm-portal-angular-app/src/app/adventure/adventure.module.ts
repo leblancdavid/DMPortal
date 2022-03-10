@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonLogicModule } from '../common/common-logic.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlayerCardComponent } from './player-card/player-card.component';
 import { PlayerEditorComponent } from './player-editor/player-editor.component';
 import { PartyEditorComponent } from './party-editor/party-editor.component';
@@ -17,7 +17,8 @@ import { PartyEditorComponent } from './party-editor/party-editor.component';
     MaterialModule,
     HttpClientModule,
     CommonLogicModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdventureModule { }

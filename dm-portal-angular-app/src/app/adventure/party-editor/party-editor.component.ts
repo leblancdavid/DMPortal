@@ -21,14 +21,28 @@ export class PartyEditorComponent implements OnInit {
 
   addPlayer() {
     let player = new Player();
-    const dialogRef = this.dialog.open(PlayerEditorComponent, {
-      data: player
-    });
+    const dialogRef = this.showPlayerEditDialog(player);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.party.addPlayer(player);
       }
     })
+
+  }
+
+  editPlayer(player: Player) {
+    const dialogRef = this.showPlayerEditDialog(player);
+  }
+
+  private showPlayerEditDialog(player: Player) {
+    const dialogRef = this.dialog.open(PlayerEditorComponent, {
+      data: player
+    });
+
+    return dialogRef;
+  }
+
+  deletePlayer(player: Player) {
 
   }
 

@@ -1,11 +1,11 @@
 <div mat-dialog-title class="player-editor-title">
     <mat-form-field appearance="fill">
         <mat-label>Player Name</mat-label>
-        <input matInput [(ngModel)]="player.name">
+        <input matInput required [formControl]="name">
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Character Name</mat-label>
-        <input matInput [(ngModel)]="player.characterName">
+        <input matInput [formControl]="characterName">
     </mat-form-field>
 
 </div>
@@ -13,7 +13,7 @@
     <div class="player-editor-content">
         <mat-form-field appearance="fill">
             <mat-label>Class</mat-label>
-            <mat-select [(ngModel)]="player.characterClass">
+            <mat-select [(ngModel)]="characterClass">
                 <mat-option *ngFor="let class of classes" [value]="class">{{class}}</mat-option>
             </mat-select>
         </mat-form-field>
@@ -75,5 +75,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="save()">Save</button>
 </mat-dialog-actions>

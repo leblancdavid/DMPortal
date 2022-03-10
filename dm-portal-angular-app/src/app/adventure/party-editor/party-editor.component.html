@@ -7,15 +7,19 @@
     <div class="row">
         <h2>Players</h2>
 
-        <button mat-fab color="primary" (click)="addPlayer()">
-            <mat-icon>add</mat-icon>
-        </button>
+
     </div>
 
     <mat-accordion class="player-list">
         <mat-expansion-panel *ngFor="let player of party.players">
             <mat-expansion-panel-header>
                 <mat-panel-title class="player-title">
+                    <div>
+                        <button mat-mini-fab color="accent" (click)="editPlayer(player)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </div>
+
                     <div>
                         {{player.name}}
                     </div>
@@ -26,6 +30,9 @@
                         {{player.characterClass}} {{player.level}}
                     </div>
                     <div style="text-align: right;">
+                        <button mat-mini-fab color="warn" (click)="deletePlayer(player)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
                     </div>
                 </mat-panel-title>
                 <mat-panel-description>
@@ -37,5 +44,12 @@
             </div>
 
         </mat-expansion-panel>
+
+        <div class="add-button-space">
+            <button mat-fab color="primary" (click)="addPlayer()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
     </mat-accordion>
 </div>
