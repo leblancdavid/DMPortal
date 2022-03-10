@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PartyCreatorComponent } from './party-creator.component';
+import { PlayerEditorComponent } from './player-editor.component';
 
-describe('PartyCreatorComponent', () => {
-  let component: PartyCreatorComponent;
-  let fixture: ComponentFixture<PartyCreatorComponent>;
+describe('PlayerEditorComponent', () => {
+  let component: PlayerEditorComponent;
+  let fixture: ComponentFixture<PlayerEditorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PartyCreatorComponent ]
+      declarations: [ PlayerEditorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PartyCreatorComponent);
+    fixture = TestBed.createComponent(PlayerEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

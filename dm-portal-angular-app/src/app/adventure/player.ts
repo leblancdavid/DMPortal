@@ -3,16 +3,16 @@ export class Player {
     currentHp: number;
     level: number;
     xp: number;
-    constructor(public name: string,
-        public characterName: string,
-        public characterClass: string,
-        public maxHp: number,
-        public strength: number,
-        public dexterity: number,
-        public constitution: number,
-        public intelligence: number,
-        public wisdom: number,
-        public charisma: number) {
+    constructor(public name: string = '',
+        public characterName: string = '',
+        public characterClass: string = '',
+        public maxHp: number = 0,
+        public strength: number = 0,
+        public dexterity: number = 0,
+        public constitution: number = 0,
+        public intelligence: number = 0,
+        public wisdom: number = 0,
+        public charisma: number = 0) {
         this.currentHp = maxHp;
         this.level = 1;
         this.xp = 0;

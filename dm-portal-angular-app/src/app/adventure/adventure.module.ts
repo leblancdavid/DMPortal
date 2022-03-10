@@ -4,13 +4,14 @@ import { MaterialModule } from '../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonLogicModule } from '../common/common-logic.module';
 import { FormsModule } from '@angular/forms';
-import { PartyCreatorComponent } from './party-creator/party-creator.component';
 import { PlayerCardComponent } from './player-card/player-card.component';
+import { PlayerEditorComponent } from './player-editor/player-editor.component';
+import { PartyEditorComponent } from './party-editor/party-editor.component';
 
 
 
 @NgModule({
-  declarations: [PartyCreatorComponent, PlayerCardComponent],
+  declarations: [PlayerCardComponent, PlayerEditorComponent, PartyEditorComponent],
   imports: [
     CommonModule,
     MaterialModule,
