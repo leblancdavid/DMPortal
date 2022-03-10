@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { StatType } from 'src/app/common/stat-type.enum';
+import { Player } from '../player';
 
 @Component({
   selector: 'dm-player-card',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerCardComponent implements OnInit {
 
+  statTypes = StatType;
+
+  @Input() player!: Player;
   constructor() { }
 
   ngOnInit(): void {

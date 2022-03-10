@@ -7,6 +7,7 @@ export class Player {
         public characterName: string = '',
         public characterClass: string = '',
         public maxHp: number = 0,
+        public armor_class: number = 0,
         public strength: number = 0,
         public dexterity: number = 0,
         public constitution: number = 0,

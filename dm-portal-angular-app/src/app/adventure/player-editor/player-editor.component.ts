@@ -12,7 +12,7 @@ export class PlayerEditorComponent implements OnInit {
 
   name = new FormControl('', [Validators.required]);
   characterName = new FormControl('', [Validators.required]);
-  characterClass = '';
+  characterClass: string;
   maxHp = new FormControl('', [Validators.min(0)]);
   strength = new FormControl('', [Validators.min(0), Validators.max(30)]);
   dexterity = new FormControl('', [Validators.min(0), Validators.max(30)]);
@@ -23,16 +23,17 @@ export class PlayerEditorComponent implements OnInit {
   level = new FormControl('', [Validators.min(0), Validators.max(20)]);
   xp = new FormControl('', [Validators.min(0)]);
 
-
+  //Todo: maybe eventually this list can be retrieved from the server?
   classes = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
 
   constructor(@Inject(MAT_DIALOG_DATA) public player: Player) {
     this.characterClass = player.characterClass;
-    if (this.characterClass == '') {
+    if (this.characterClass == null || this.characterClass === '') {
       this.characterClass = this.classes[0];
     }
     this.name.setValue(this.player.name);
     this.characterName.setValue(this.player.characterName);
+    this.characterClass = this.player.characterClass;
     this.maxHp.setValue(this.player.maxHp);
     this.strength.setValue(this.player.strength);
     this.dexterity.setValue(this.player.dexterity);
@@ -52,6 +53,7 @@ export class PlayerEditorComponent implements OnInit {
   save() {
     this.player.name = this.name.value;
     this.player.characterName = this.characterName.value;
+    this.player.characterClass = this.characterClass;
     this.player.maxHp = this.maxHp.value;
     this.player.strength = this.strength.value;
     this.player.dexterity = this.dexterity.value;
@@ -66,6 +68,7 @@ export class PlayerEditorComponent implements OnInit {
   containsErrors(): boolean {
     return this.name.errors != null ||
       this.characterName.errors != null ||
+      this.characterClass == '' ||
       this.maxHp.errors != null ||
       this.strength.errors != null ||
       this.dexterity.errors != null ||

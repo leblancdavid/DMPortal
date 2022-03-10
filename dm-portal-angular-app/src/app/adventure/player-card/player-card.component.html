@@ -1,1 +1,33 @@
-<p>player-card works!</p>
+<div class="card" *ngIf="player">
+    <div class="player-header data-row">
+        <h2>
+            {{player.characterName}} ({{player.name}})
+        </h2>
+        <div class="data-row">
+            <dm-value-icon [matIcon]="'shield'" [value]="player.armor_class" [valueColor]="'white'"
+                [iconColor]="'gray'">
+            </dm-value-icon>
+            <dm-value-icon [matIcon]="'favorite'" [value]="player.maxHp" [valueColor]="'white'" [iconColor]="'darkred'">
+            </dm-value-icon>
+        </div>
+    </div>
+
+    <div class="player-stats">
+        <div class="data-row">
+            <dm-creature-stat [value]="player.strength" [type]="statTypes.Strength"></dm-creature-stat>
+            <dm-creature-stat [value]="player.dexterity" [type]="statTypes.Dexterity"></dm-creature-stat>
+            <dm-creature-stat [value]="player.constitution" [type]="statTypes.Constitution"></dm-creature-stat>
+        </div>
+        <div class="data-row">
+            <dm-creature-stat [value]="player.intelligence" [type]="statTypes.Intelligence"></dm-creature-stat>
+            <dm-creature-stat [value]="player.wisdom" [type]="statTypes.Wisdom"></dm-creature-stat>
+            <dm-creature-stat [value]="player.charisma" [type]="statTypes.Charisma"></dm-creature-stat>
+        </div>
+    </div>
+
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Info">
+            <h2><i>More stuff coming here soon</i></h2>
+        </mat-tab>
+    </mat-tab-group>
+</div>

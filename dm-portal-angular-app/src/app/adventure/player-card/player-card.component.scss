@@ -1,0 +1,52 @@
+.card {
+    max-width: 100%;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .player-content-column {
+        padding: 8px;
+        min-width: 192px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.tab-content {
+    height: 384px;
+    padding: 8px;
+    overflow-y: auto;
+}
+
+.data-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    *  {
+        margin-right: 8px; 
+    }
+}
+
+.ability-cell {
+    min-width: 48px;
+    padding: 8px;
+}
+
+.player-stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

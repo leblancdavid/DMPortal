@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { StatType } from 'src/app/common/stat-type.enum';
 import { Party, Player } from '../player';
 import { PlayerEditorComponent } from '../player-editor/player-editor.component';
 
@@ -14,6 +15,8 @@ export class PartyEditorComponent implements OnInit {
   constructor(public dialog: MatDialog) {
     this.party = new Party('');
   }
+
+  statTypes = StatType;
 
   ngOnInit(): void {
   }
