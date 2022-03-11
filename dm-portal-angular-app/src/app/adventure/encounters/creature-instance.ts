@@ -125,4 +125,15 @@ export class MonsterInstance implements ICreatureInstance {
     damage(amount: number): void {
         this.currentHp -= amount;
     }
+
+    clone(): MonsterInstance {
+        var cloned = new MonsterInstance(this.monster, this.id, this.name);
+        cloned.acOverride = this.acOverride;
+        cloned.hpOverride = this.hpOverride;
+        cloned.initiativeValue = this.initiativeValue;
+        cloned.currentHp = this.currentHp;
+        cloned.xpValue = this.xpValue;
+
+        return cloned;
+    }
 }

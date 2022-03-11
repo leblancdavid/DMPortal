@@ -16,9 +16,11 @@ export class MonsterInstanceEditorComponent implements OnInit {
 
   overwriteHp: boolean = false;
   overwriteAc: boolean = false;
+  copies: number = 1;
   constructor(@Inject(MAT_DIALOG_DATA) public data: MonsterInstanceEditorDialogData) {
     this.overwriteAc = data.monster.acOverride != null;
     this.overwriteHp = data.monster.hpOverride != null;
+
   }
 
   ngOnInit(): void {

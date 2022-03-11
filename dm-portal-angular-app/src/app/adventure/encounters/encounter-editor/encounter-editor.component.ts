@@ -38,7 +38,7 @@ export class EncounterEditorComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result > 0) {
         for (let count = 0; count < result; ++count) {
-          this.encounter.addMonster(monsterInstance);
+          this.encounter.addMonster(monsterInstance.clone());
         }
       }
     });

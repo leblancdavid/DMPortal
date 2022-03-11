@@ -28,7 +28,7 @@ export class PartyEditorComponent implements OnInit {
       if (result) {
         this.party.addPlayer(player);
       }
-    })
+    });
 
   }
 

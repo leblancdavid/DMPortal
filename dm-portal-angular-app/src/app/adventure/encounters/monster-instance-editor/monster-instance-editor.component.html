@@ -3,7 +3,10 @@
         <mat-label>Name</mat-label>
         <input matInput required [(ngModel)]="data.monster.name">
     </mat-form-field>
-
+    <mat-form-field appearance="fill">
+        <mat-label>Identifier</mat-label>
+        <input matInput [(ngModel)]="data.monster.id">
+    </mat-form-field>
 </div>
 <mat-dialog-content>
     <div class="monster-editor-content">
@@ -23,9 +26,14 @@
         </mat-form-field>
     </div>
 
+    <mat-form-field appearance="fill" *ngIf="!data.isEdit">
+        <mat-label>Number of Copies</mat-label>
+        <input matInput type="number" [(ngModel)]="copies">
+    </mat-form-field>
+
     <h3><i>This is still under construction, more features to be added soon</i></h3>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-    <button mat-button [mat-dialog-close]="true" (click)="save()">OK</button>
+    <button mat-button [mat-dialog-close]="copies" (click)="save()">OK</button>
 </mat-dialog-actions>
