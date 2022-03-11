@@ -7,11 +7,13 @@ import { CommonLogicModule } from '../common/common-logic.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MonsterLookupFilterComponent } from './monster-lookup/monster-lookup-filter/monster-lookup-filter.component';
 import { FormsModule } from '@angular/forms';
+import { MonsterSelectListComponent } from './monster-select-list/monster-select-list.component';
 
 
 
 @NgModule({
-  declarations: [MonsterLookupComponent, MonsterCardComponent, MonsterRefCardComponent, MonsterLookupFilterComponent],
+  declarations: [MonsterLookupComponent, MonsterCardComponent, MonsterRefCardComponent, MonsterLookupFilterComponent, MonsterSelectListComponent],
+  exports: [MonsterLookupComponent, MonsterSelectListComponent],
   imports: [
     CommonModule,
     MaterialModule,

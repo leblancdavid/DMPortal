@@ -9,6 +9,7 @@ import { PlayerEditorComponent } from './players/player-editor/player-editor.com
 import { PlayerCardComponent } from './players/player-card/player-card.component';
 import { EncounterLookupComponent } from './encounters/encounter-lookup/encounter-lookup.component';
 import { EncounterEditorComponent } from './encounters/encounter-editor/encounter-editor.component';
+import { MonstersModule } from '../monsters/monsters.module';
 
 
 
@@ -20,7 +21,8 @@ import { EncounterEditorComponent } from './encounters/encounter-editor/encounte
     HttpClientModule,
     CommonLogicModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MonstersModule
   ]
 })
 export class AdventureModule { }

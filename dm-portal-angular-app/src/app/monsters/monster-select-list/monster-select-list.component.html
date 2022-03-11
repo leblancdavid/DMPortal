@@ -1,0 +1,12 @@
+<div class="monster-lookup">
+    <div class="monster-list-column">
+        <dm-monster-lookup-filter [filter]="filter" (change)="applyFilter()">
+        </dm-monster-lookup-filter>
+
+        <mat-selection-list [multiple]="false">
+            <mat-list-option *ngFor="let monster of filteredList" [value]="monster.index">
+                {{monster.name}}
+            </mat-list-option>
+        </mat-selection-list>
+    </div>
+</div>
