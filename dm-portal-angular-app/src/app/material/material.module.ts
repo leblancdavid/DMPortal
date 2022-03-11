@@ -80,7 +80,8 @@ import { MatTableModule } from '@angular/material/table';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule
   ],
   exports: [
     MatAutocompleteModule,
@@ -117,7 +118,8 @@ import { MatTableModule } from '@angular/material/table';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule
   ]
 })
 export class MaterialModule { }
