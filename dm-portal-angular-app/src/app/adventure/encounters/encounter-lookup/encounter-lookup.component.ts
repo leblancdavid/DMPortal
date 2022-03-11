@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CombatEncounterDefinition } from '../encounter';
+import { EncounterEditorComponent } from '../encounter-editor/encounter-editor.component';
 
 @Component({
   selector: 'dm-encounter-lookup',
@@ -9,37 +11,37 @@ import { CombatEncounterDefinition } from '../encounter';
 export class EncounterLookupComponent implements OnInit {
 
   encounters: Array<CombatEncounterDefinition> = [];
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   addEncounter() {
     let encounter = new CombatEncounterDefinition('');
-    /*
-    const dialogRef = this.showEncounterEditDialog(player);
+
+    const dialogRef = this.showEncounterEditDialog(encounter);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.party.addPlayer(player);
+        this.encounters.push(encounter);
       }
     })
-    */
+
   }
 
   editEncounter(encounter: CombatEncounterDefinition) {
-    //const dialogRef = this.showEncounterEditDialog(encounter);
+    const dialogRef = this.showEncounterEditDialog(encounter);
   }
 
-  /*
+
   private showEncounterEditDialog(encounter: CombatEncounterDefinition) {
-    
-    const dialogRef = this.dialog.open(PlayerEditorComponent, {
-      data: player
+
+    const dialogRef = this.dialog.open(EncounterEditorComponent, {
+      data: encounter
     });
 
     return dialogRef;
   }
-  */
+
 
   deleteEncounter(encounter: CombatEncounterDefinition) {
     //this.party.removePlayer(encounter.characterName);

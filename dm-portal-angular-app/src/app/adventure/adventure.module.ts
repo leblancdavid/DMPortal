@@ -8,11 +8,12 @@ import { PartyEditorComponent } from './players/party-editor/party-editor.compon
 import { PlayerEditorComponent } from './players/player-editor/player-editor.component';
 import { PlayerCardComponent } from './players/player-card/player-card.component';
 import { EncounterLookupComponent } from './encounters/encounter-lookup/encounter-lookup.component';
+import { EncounterEditorComponent } from './encounters/encounter-editor/encounter-editor.component';
 
 
 
 @NgModule({
-  declarations: [PlayerCardComponent, PlayerEditorComponent, PartyEditorComponent, EncounterLookupComponent],
+  declarations: [PlayerCardComponent, PlayerEditorComponent, PartyEditorComponent, EncounterLookupComponent, EncounterEditorComponent],
   imports: [
     CommonModule,
     MaterialModule,
