@@ -9,17 +9,17 @@
 
         <div class="monster-selector">
 
-            <dm-monster-lookup></dm-monster-lookup>
+            <dm-monster-lookup (select)="selectMonster($event)"></dm-monster-lookup>
         </div>
 
 
         <div class="editor-controls">
-            <button mat-fab color="primary" (click)="addSelectedMonster()">
+            <button mat-fab color="primary" (click)="addSelectedMonster()" [disabled]="selectedMonster == null">
                 <mat-icon>add</mat-icon>
             </button>
         </div>
         <div class="monster-instances">
-            Instances
+            <dm-encounter-details [encounter]="encounter"></dm-encounter-details>
         </div>
     </div>
 

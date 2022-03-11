@@ -9,16 +9,16 @@ export class CombatEncounterDefinition {
 
     addMonster(monster: MonsterInstance) {
         let index = 2;
-        const originalName = monster.name;
-        while (this.monsters.some(x => x.name == monster.name)) {
+        const originalName = monster.id;
+        while (this.monsters.some(x => x.id == monster.id)) {
             monster.name = originalName + ' ' + index;
             index++;
         }
         this.monsters.push(monster);
     }
 
-    removeMonster(monsterName: string) {
-        const index = this.monsters.findIndex(p => p.name == monsterName);
+    removeMonster(id: string) {
+        const index = this.monsters.findIndex(p => p.id == id);
         if (index > -1) {
             this.monsters.splice(index, 1);
         }

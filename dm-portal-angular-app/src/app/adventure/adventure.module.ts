@@ -10,11 +10,13 @@ import { PlayerCardComponent } from './players/player-card/player-card.component
 import { EncounterLookupComponent } from './encounters/encounter-lookup/encounter-lookup.component';
 import { EncounterEditorComponent } from './encounters/encounter-editor/encounter-editor.component';
 import { MonstersModule } from '../monsters/monsters.module';
+import { EncounterDetailsComponent } from './encounters/encounter-details/encounter-details.component';
+import { MonsterInstanceEditorComponent } from './encounters/monster-instance-editor/monster-instance-editor.component';
 
 
 
 @NgModule({
-  declarations: [PlayerCardComponent, PlayerEditorComponent, PartyEditorComponent, EncounterLookupComponent, EncounterEditorComponent],
+  declarations: [PlayerCardComponent, PlayerEditorComponent, PartyEditorComponent, EncounterLookupComponent, EncounterEditorComponent, EncounterDetailsComponent, MonsterInstanceEditorComponent],
   imports: [
     CommonModule,
     MaterialModule,

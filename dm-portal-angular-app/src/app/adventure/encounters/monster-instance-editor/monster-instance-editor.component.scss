@@ -1,0 +1,21 @@
+.monster-editor-title {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    * {
+        padding: 8px;
+        flex: 1;
+    }
+}
+
+.monster-editor-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: baseline;
+    * {
+        padding: 8px;
+        width: 192px;
+    }
+}

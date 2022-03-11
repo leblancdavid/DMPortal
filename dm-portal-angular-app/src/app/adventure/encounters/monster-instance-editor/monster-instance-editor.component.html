@@ -1,0 +1,31 @@
+<div mat-dialog-title class="monster-editor-title">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput required [(ngModel)]="data.monster.name">
+    </mat-form-field>
+
+</div>
+<mat-dialog-content>
+    <div class="monster-editor-content">
+
+        <mat-checkbox [(ngModel)]="overwriteHp">Overwrite Hit Points</mat-checkbox>
+        <mat-form-field appearance="fill" *ngIf="overwriteHp">
+            <mat-label>Modified Hit Points</mat-label>
+            <input matInput type="number" [(ngModel)]="data.monster.hpOverride">
+        </mat-form-field>
+
+    </div>
+    <div class="monster-editor-content">
+        <mat-checkbox [(ngModel)]="overwriteAc">Overwrite Armor Class</mat-checkbox>
+        <mat-form-field appearance="fill" *ngIf="overwriteAc">
+            <mat-label>Modified Armor Class</mat-label>
+            <input matInput type="number" [(ngModel)]="data.monster.acOverride">
+        </mat-form-field>
+    </div>
+
+    <h3><i>This is still under construction, more features to be added soon</i></h3>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" (click)="save()">OK</button>
+</mat-dialog-actions>
