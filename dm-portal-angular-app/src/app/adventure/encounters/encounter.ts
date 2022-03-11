@@ -7,25 +7,25 @@ export class CombatEncounterDefinition {
         this.monsters = [];
     }
 
-    addPlayer(player: Player) {
+    addMonster(monster: MonsterInstance) {
         let index = 2;
-        const originalName = player.characterName;
-        while (this.players.some(x => x.characterName == player.characterName)) {
-            player.characterName = originalName + ' ' + index;
+        const originalName = monster.name;
+        while (this.monsters.some(x => x.name == monster.name)) {
+            monster.name = originalName + ' ' + index;
             index++;
         }
-        this.players.push(player);
+        this.monsters.push(monster);
     }
 
-    removePlayer(characterName: string) {
-        const index = this.players.findIndex(p => p.characterName == characterName);
+    removeMonster(monsterName: string) {
+        const index = this.monsters.findIndex(p => p.name == monsterName);
         if (index > -1) {
-            this.players.splice(index, 1);
+            this.monsters.splice(index, 1);
         }
     }
 
-    getEncounterExperience(numMonsters: number) {
-        return new EncounterExperienceThresholds(this.players.reduce((sum, current) => sum + current.level, 0), numMonsters);
+    getEncounterExperience() {
+        return this.monsters.reduce((sum, current) => sum + current.xpValue, 0);
     }
 }
 

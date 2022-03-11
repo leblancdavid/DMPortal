@@ -7,11 +7,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PartyEditorComponent } from './players/party-editor/party-editor.component';
 import { PlayerEditorComponent } from './players/player-editor/player-editor.component';
 import { PlayerCardComponent } from './players/player-card/player-card.component';
+import { EncounterLookupComponent } from './encounters/encounter-lookup/encounter-lookup.component';
 
 
 
 @NgModule({
-  declarations: [PlayerCardComponent, PlayerEditorComponent, PartyEditorComponent],
+  declarations: [PlayerCardComponent, PlayerEditorComponent, PartyEditorComponent, EncounterLookupComponent],
   imports: [
     CommonModule,
     MaterialModule,

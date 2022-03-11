@@ -77,6 +77,7 @@ export class MonsterInstance implements ICreatureInstance {
     acOverride?: number | undefined;
     initiativeValue: number;
     currentHp: number;
+    xpValue: number;
 
     monster: MonsterDefinition;
 
@@ -95,6 +96,7 @@ export class MonsterInstance implements ICreatureInstance {
         this.type = monster.type;
         this.initiativeValue = 0;
         this.currentHp = monster.hit_points;
+        this.xpValue = monster.xp;
     }
 
     isDead(): boolean {
