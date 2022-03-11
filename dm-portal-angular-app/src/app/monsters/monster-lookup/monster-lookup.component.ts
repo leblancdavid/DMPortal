@@ -38,7 +38,7 @@ export class MonsterLookupComponent implements OnInit {
 
   }
 
-  expandMonster(monsterIndex: string) {
+  selectMonster(monsterIndex: string) {
     this.selectedMonsterIndex = monsterIndex;
     this.monsterDefinition = this.filteredList.find(x => x.index == monsterIndex);
     this.select.emit(this.monsterDefinition);

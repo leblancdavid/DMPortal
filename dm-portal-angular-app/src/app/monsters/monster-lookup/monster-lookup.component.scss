@@ -18,7 +18,27 @@
             overflow-y: auto;
 
             .selected {
-                background-color: rgba(55,55,255, 0.1);
+                background-color: rgba(55,55,255, 0.1) !important;
+            }
+
+            .monster-item {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: 64px;
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                font-size: larger;
+                border-bottom: 1px rgba(55, 55, 55, 0.1) solid;
+
+                .detail {
+                    flex: 1;
+                }
+
+                &:hover {
+                    background-color: rgba(0,0,0, 0.1);
+                }
             }
         }
     }

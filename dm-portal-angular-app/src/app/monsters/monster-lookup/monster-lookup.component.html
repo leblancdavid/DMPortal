@@ -2,6 +2,31 @@
   <div class="monster-list-column">
     <dm-monster-lookup-filter [filter]="filter" (change)="applyFilter()">
     </dm-monster-lookup-filter>
+
+    <div class="monster-list">
+      <div *ngFor="let monster of filteredList" class="monster-item"
+        [class.selected]="monster.index === selectedMonsterIndex" (click)="selectMonster(monster.index)">
+        <div class="detail" style="flex: 2">
+          {{monster.name}}
+          <dm-monster-card-button *ngIf="monster.index === selectedMonsterIndex" [definition]="monster">
+          </dm-monster-card-button>
+        </div>
+        <div class="detail" style="text-align: center;">
+          {{monster.type.toUpperCase()}}
+        </div>
+        <div class="detail" style="text-align: center;">
+          {{monster.size}}
+        </div>
+        <div class="detail" style="text-align: right;">
+          <dm-value-icon [matIcon]="'star'" [value]="monster.challenge_rating" [valueColor]="'black'"
+            [iconColor]="'lightgoldenrodyellow'">
+          </dm-value-icon>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      
     <mat-accordion class="monster-list">
       <mat-expansion-panel *ngFor="let monster of filteredList" (afterExpand)="expandMonster(monster.index)"
         (closed)="closeMonster()" [class.selected]="monster.index === selectedMonsterIndex">
@@ -34,5 +59,6 @@
 
       </mat-expansion-panel>
     </mat-accordion>
+    -->
   </div>
 </div>
