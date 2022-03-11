@@ -1,12 +1,27 @@
-<div class="encounter-editor-title">
-    <mat-form-field appearance="fill">
-        <mat-label>Encounter Name</mat-label>
-        <input matInput [(ngModel)]="encounter.name">
-    </mat-form-field>
+<div class="encounter-editor">
+    <div class="encounter-editor-title">
+        <mat-form-field appearance="fill">
+            <mat-label>Encounter Name</mat-label>
+            <input matInput [(ngModel)]="encounter.name">
+        </mat-form-field>
+    </div>
+    <div class="encounter-editor-content">
 
-</div>
-<div class="encounter-editor-content">
-    <dm-monster-select-list></dm-monster-select-list>
-</div>
+        <div class="monster-selector">
 
-<h3><i>This is still under construction, more features to be added soon</i></h3>
+            <dm-monster-lookup></dm-monster-lookup>
+        </div>
+
+
+        <div class="editor-controls">
+            <button mat-fab color="primary" (click)="addSelectedMonster()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <div class="monster-instances">
+            Instances
+        </div>
+    </div>
+
+    <h3><i>This is still under construction, more features to be added soon</i></h3>
+</div>

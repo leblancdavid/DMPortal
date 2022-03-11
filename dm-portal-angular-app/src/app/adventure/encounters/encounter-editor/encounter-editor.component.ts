@@ -13,13 +13,17 @@ export class EncounterEditorComponent implements OnInit {
 
   encounter: CombatEncounterDefinition;
   constructor(private encounterEditorService: EncounterEditorService) {
-    if (!encounterEditorService.currentEncounterDefinition) {
-      encounterEditorService.currentEncounterDefinition = new CombatEncounterDefinition('');
+    if (!this.encounterEditorService.currentEncounterDefinition) {
+      this.encounterEditorService.currentEncounterDefinition = new CombatEncounterDefinition('');
     }
-    this.encounter = encounterEditorService.currentEncounterDefinition;
+    this.encounter = this.encounterEditorService.currentEncounterDefinition;
   }
 
   ngOnInit(): void {
   }
 
+
+  addSelectedMonster() {
+
+  }
 }
