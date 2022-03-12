@@ -10,6 +10,7 @@
 
                 <div>
                     {{monster.name}}
+                    <dm-monster-card-button [definition]="monster.monster"></dm-monster-card-button>
                 </div>
                 <div style="text-align: center;">
                 </div>
@@ -26,7 +27,6 @@
 
         </mat-expansion-panel-header>
         <div class="encounter-content">
-            <dm-monster-card-button [definition]="monster.monster"></dm-monster-card-button>
         </div>
 
     </mat-expansion-panel>

@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'party', component: PartyEditorComponent },
   { path: 'encounters', component: EncounterLookupComponent },
   { path: 'encounter-editor', component: EncounterEditorComponent },
-  { path: '', redirectTo: '/encounters', pathMatch: 'full' },
+  { path: '', redirectTo: '/encounter-editor', pathMatch: 'full' },
 ];
 
 @NgModule({
