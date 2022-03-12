@@ -64,7 +64,7 @@ export class MonsterCardButtonComponent implements OnInit {
   showCard() {
     this.bottomSheet.open(MonsterCardBottomSheet, {
       data: this.definition,
-      panelClass: 'view-width-80'
+      panelClass: 'card-bottom-sheet'
     });
   }
 }
