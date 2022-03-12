@@ -9,7 +9,7 @@ export interface ICreatureInstance {
     hpOverride?: number;
     acOverride?: number;
 
-    initiativeValue: number;
+    initiativeModifier: number;
     currentHp: number;
 
     isDead(): boolean;
@@ -26,7 +26,7 @@ export class PlayerInstance implements ICreatureInstance {
     type: string;
     hpOverride?: number | undefined;
     acOverride?: number | undefined;
-    initiativeValue: number;
+    initiativeModifier: number;
     currentHp: number;
 
     player: Player;
@@ -36,7 +36,7 @@ export class PlayerInstance implements ICreatureInstance {
         this.id = player.characterName;
         this.name = player.name;
         this.type = 'player';
-        this.initiativeValue = 0;
+        this.initiativeModifier = 0;
         this.currentHp = player.maxHp;
     }
 
@@ -75,7 +75,7 @@ export class MonsterInstance implements ICreatureInstance {
     type: string;
     hpOverride?: number | undefined;
     acOverride?: number | undefined;
-    initiativeValue: number;
+    initiativeModifier: number;
     currentHp: number;
     xpValue: number;
 
@@ -94,7 +94,7 @@ export class MonsterInstance implements ICreatureInstance {
         }
         this.name = monster.name;
         this.type = monster.type;
-        this.initiativeValue = 0;
+        this.initiativeModifier = 0;
         this.currentHp = monster.hit_points;
         this.xpValue = monster.xp;
     }
@@ -130,7 +130,7 @@ export class MonsterInstance implements ICreatureInstance {
         var cloned = new MonsterInstance(this.monster, this.id, this.name);
         cloned.acOverride = this.acOverride;
         cloned.hpOverride = this.hpOverride;
-        cloned.initiativeValue = this.initiativeValue;
+        cloned.initiativeModifier = this.initiativeModifier;
         cloned.currentHp = this.currentHp;
         cloned.xpValue = this.xpValue;
 

@@ -26,7 +26,13 @@ export class MonsterInstanceEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  save() {
+  ok() {
+    if(!this.overwriteAc) {
+      this.data.monster.acOverride = undefined;
+    }
+    if(!this.overwriteHp) {
+      this.data.monster.hpOverride = undefined;
+    }
   }
 
   containsErrors(): boolean {

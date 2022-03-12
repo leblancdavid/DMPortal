@@ -31,7 +31,7 @@ export class EncounterDetailsComponent implements OnInit {
     const dialogRef = this.dialog.open(MonsterInstanceEditorComponent, {
       data: {
         monster: monster,
-        isEdit: false
+        isEdit: true
       }
     });
 

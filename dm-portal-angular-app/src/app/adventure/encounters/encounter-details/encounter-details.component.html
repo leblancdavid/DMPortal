@@ -1,36 +1,36 @@
-<mat-accordion class="encounter-monster-list">
-    <mat-expansion-panel *ngFor="let monster of encounter.monsters">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="monster-title">
-                <div>
-                    <button mat-mini-fab color="accent" (click)="editMonsterInstance(monster)">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                </div>
+<div class="encounter-monster-list">
+    <div *ngFor="let monster of encounter.monsters" class="monster-title">
 
-                <div>
-                    {{monster.name}}
-                    <dm-monster-card-button [definition]="monster.monster"></dm-monster-card-button>
-                </div>
-                <div style="text-align: center;">
-                </div>
-                <div style="text-align: center;">
-                </div>
-                <div style="text-align: right;">
-                    <button mat-mini-fab color="warn" (click)="deleteMonster(monster)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </div>
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-
-        </mat-expansion-panel-header>
-        <div class="encounter-content">
+        <div>
+            {{monster.name}}
+            <dm-monster-card-button [definition]="monster.monster"></dm-monster-card-button>
+        </div>
+        <div style="text-align: center;">
+            <dm-value-icon [matIcon]="'shield'" [value]="monster.acOverride != null ? monster.acOverride : monster.monster.armor_class" [valueColor]="'white'" [iconColor]="'gray'">
+            </dm-value-icon>
+        </div>
+        <div style="text-align: center;">
+            <dm-value-icon [matIcon]="'favorite'" [value]="monster.hpOverride != null ? monster.hpOverride : monster.monster.hit_points" [valueColor]="'white'" [iconColor]="'darkred'"></dm-value-icon>
+        </div>
+        <div style="text-align: right;">
+            <dm-value-icon [matIcon]="'star'" [value]="monster.monster.challenge_rating" [valueColor]="'black'" [iconColor]="'lightgoldenrodyellow'">
+            </dm-value-icon>
         </div>
 
-    </mat-expansion-panel>
-
-
-
-</mat-accordion>
+        <div>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editMonsterInstance(monster)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button mat-menu-item (click)="deleteMonster(monster)">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+</div>
